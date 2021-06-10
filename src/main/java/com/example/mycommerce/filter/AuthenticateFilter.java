@@ -1,4 +1,4 @@
-package com.example.app.filter;
+package com.example.mycommerce.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

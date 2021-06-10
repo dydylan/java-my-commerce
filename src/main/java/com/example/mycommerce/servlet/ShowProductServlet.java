@@ -1,4 +1,6 @@
 package com.example.mycommerce.servlet;
+
+import com.example.mycommerce.dao.DaoFactory;
 import com.example.mycommerce.dao.MyProductDao;
 import com.example.mycommerce.model.MyProduct;
 
@@ -16,8 +18,8 @@ public class ShowProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idStr = req.getParameter("id");
         Long id = Long.valueOf(idStr);
-
-        MyProduct products = MyProductDao.findProductById(id);
+        MyProductDao mdp = DaoFactory.getCarDao();
+        MyProduct products = mdp.findProductById(id);
         req.setAttribute("product", products);
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/showProduct.jsp");
         rd.forward(req, resp);

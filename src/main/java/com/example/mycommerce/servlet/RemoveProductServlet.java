@@ -1,5 +1,6 @@
 package com.example.mycommerce.servlet;
 
+import com.example.mycommerce.dao.DaoFactory;
 import com.example.mycommerce.dao.MyProductDao;
 
 import javax.servlet.RequestDispatcher;
@@ -18,7 +19,8 @@ public class RemoveProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Long id = Long.parseLong(req.getParameter("id"));
-        MyProductDao.removeProduct(id);
+        MyProductDao mpd = DaoFactory.getCarDao();
+        mpd.removeProduct(id);
         RequestDispatcher rs = req.getRequestDispatcher("/auth/listProduct");
         rs.forward(req,resp);
 

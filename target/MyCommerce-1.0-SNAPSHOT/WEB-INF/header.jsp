@@ -18,6 +18,5 @@
         <li><a href="<c:url value="/login" />">Log in</a></li>
     </ul>
 </nav>
-<%--<h2><%= new java.util.Date() %></h2>--%>
 </body>
 </html>

@@ -1,15 +1,33 @@
 package com.example.mycommerce.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "cars")
 public class MyProduct implements Serializable {
-    private static final long serialVersionUID = -8532746189132861552L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String content;
     private float price;
 
     public MyProduct() {
+    }
+
+    public MyProduct(Long id, String name, String content, float price) {
+        this.id = id;
+        this.name = name;
+        this.content = content;
+        this.price = price;
+    }
+
+    public MyProduct(String name, float price) {
+        this.name = name;
+        this.content = content;
+        this.price = price;
     }
 
     public Long getId() {
@@ -28,9 +46,6 @@ public class MyProduct implements Serializable {
         this.name = name;
     }
 
-    public String getContent() {
-        return this.content;
-    }
 
     public void setContent(String content) {
         this.content = content;

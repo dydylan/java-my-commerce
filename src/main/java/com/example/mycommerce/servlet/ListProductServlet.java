@@ -1,7 +1,6 @@
-package com.example.servlet;
+package com.example.mycommerce.servlet;
 
-import com.example.mycommerce.dao.MyProductDao;
-import com.example.mycommerce.model.MyProduct;
+import com.example.mycommerce.dao.DaoFactory;
 import com.example.mycommerce.dao.MyProductDao;
 import com.example.mycommerce.model.MyProduct;
 
@@ -23,7 +22,8 @@ public class ListProductServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<MyProduct> products = MyProductDao.getAllProducts();
+        MyProductDao mpd = DaoFactory.getCarDao();
+        List<MyProduct> products = mpd.getAllProducts();
         req.setAttribute("products", products);
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/listProduct.jsp");
         rd.forward(req, resp);

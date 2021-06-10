@@ -7,8 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import com.example.mycommerce.model.MyProduct;
+import com.example.mycommerce.dao.DaoFactory;
 import com.example.mycommerce.dao.MyProductDao;
+import com.example.mycommerce.model.MyProduct;
 
 @WebServlet(urlPatterns = "/auth/basicInsert")
 public class InsertSomeProductServlet extends HttpServlet {
@@ -19,6 +20,7 @@ public class InsertSomeProductServlet extends HttpServlet {
         product.setName("Montre");
         product.setContent("belle montre");
         product.setPrice(150F);
-        MyProductDao.addProduct(product);
+        MyProductDao mpd = DaoFactory.getCarDao();
+        mpd.addProduct(product);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.mycommerce.servlet;
 
-import com.example.mycommerce.model.MyProduct;
+import com.example.mycommerce.dao.DaoFactory;
 import com.example.mycommerce.dao.MyProductDao;
 import com.example.mycommerce.model.MyProduct;
 
@@ -33,7 +33,8 @@ public class AddProductServlet extends HttpServlet {
         }catch (Exception e){}
 
         nproduct.setPrice(lprice);
-        MyProductDao.addProduct(nproduct);
+        MyProductDao mpd = DaoFactory.getCarDao();
+        mpd.addProduct(nproduct);
         resp.sendRedirect( req.getContextPath() + "/auth/listProduct");
 
     }
