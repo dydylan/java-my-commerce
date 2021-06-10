@@ -8,17 +8,15 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/header.jsp" %>
+<h2>List product :</h2>
 <table>
     <c:forEach items="${products}" var="t">
-        <tr>
-            <td><c:out value="${t.name}" /></td>
-            <td><c:out value="${t.content}" /></td>
-            <td><c:out value="${t.price}" /></td>
-            <td>
-                <a href="${pageContext.request.contextPath}/auth/show-product?id=${t.id}">Voir</a>
-                <a href="${pageContext.request.contextPath}/auth/removeProduct?id=${t.id}">Supprimer</a>
-            </td>
-        </tr>
+        <p>Product ${t.id} : ${t.name}</p>
+        <p>Content : ${t.content}</p>
+        <p>Price : ${t.price}</p>
+        <p><a href="${pageContext.request.contextPath}/auth/show-product?id=${t.id}">Voir</a></p>
+        <p><a href="${pageContext.request.contextPath}/auth/removeProduct?id=${t.id}">Supprimer</a></p>
+        </br>
     </c:forEach>
 </table>
 

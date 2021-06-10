@@ -25,7 +25,7 @@ public class AddProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         MyProduct nproduct = new MyProduct();
         nproduct.setName(req.getParameter("name"));
-        nproduct.setContent(req.getParameter("Content"));
+        nproduct.setContent(req.getParameter("content"));
         String nprice = req.getParameter("price");
         Float lprice =0f;
         try{

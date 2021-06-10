@@ -8,13 +8,16 @@
 </head>
 <body>
 
-<a href="<c:url value="/auth/listProduct" />"> Liste des produits </a>
-<a href="<c:url value="/auth/addProduct" />">Ajouter un produit </a>
-<a href="<c:url value="/logout" />">Se déconnecter</a>
-<a href="<c:url value="/login" />">Se connecter</a>
+<p>Vous êtes connecté en tant que ${user}</p>
 
-<H1>Bonjour ! </H1>
-<h2><%= new java.util.Date() %></h2>
-
+<nav>
+    <ul>
+        <li><a href="<c:url value="/auth/listProduct" />">List product</a></li>
+        <li><a href="<c:url value="/auth/addProduct" />">Add a product</a></li>
+        <li><a href="<c:url value="/log-out" />">Log out</a></li>
+        <li><a href="<c:url value="/login" />">Log in</a></li>
+    </ul>
+</nav>
+<%--<h2><%= new java.util.Date() %></h2>--%>
 </body>
 </html>

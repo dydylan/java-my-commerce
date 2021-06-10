@@ -9,19 +9,11 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Bienvenu sur MyCommerce" %>
 </h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
 <br>
 <a href="login">Se connecter</a>
 <br>
-<p>"/listProduct" pour voir la liste des articles ajoutés</p>
-
-
-<table>
-    <td><c:out value="toto"></c:out><td>
-</table>
 
 </body>
 </html>

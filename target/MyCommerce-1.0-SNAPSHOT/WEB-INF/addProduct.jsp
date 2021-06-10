@@ -8,17 +8,25 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/header.jsp" %>
+<h2>Add a product :</h2>
 <form action="<c:url value="/auth/addProduct" />" method="post">
-    <label for="name">Product name :</label>
-    <input type="text" name="name" id="name">
+    <p>
+        <label for="name">Product name :</label>
+        <input type="text" name="name" id="name">
+    </p>
 
-    <label for="content">Description :</label>
-    <input type="text" name="content" id="content">
+    <p>
+        <label for="content">Content :</label>
+        <input type="text" name="content" id="content">
+    </p>
 
-    <label for="price"> price :</label>
-    <input type="number" min="0.0" name="price" id="price">
+    <p>
+        <label for="price"> price :</label>
+        <input type="number" min="0.0" name="price" id="price">
+    </p>
 
-    <input type="submit" value="Ajouter">
+    <p><input type="submit" value="Ajouter"></p>
+
 </form>
 <%@ include file="/WEB-INF/footer.jsp" %>
 </body>
