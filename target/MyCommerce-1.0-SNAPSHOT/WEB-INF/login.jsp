@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:c="">
-<head>
-    <meta charset="UTF-8">
-    <title>Formulaire</title>
-</head>
-<body>
+<%@ include file="/WEB-INF/header.jsp" %>
+
 <h2>Log in</h2>
 <form method="post" action="login">
     <p>
@@ -15,7 +10,5 @@
 
 </form>
 </br>
-<%@ include file="/WEB-INF/footer.jsp" %>
 
-</body>
-</html>
+<%@ include file="/WEB-INF/footer.jsp" %>

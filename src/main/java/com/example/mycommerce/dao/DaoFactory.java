@@ -12,9 +12,9 @@ public final class DaoFactory {
     private DaoFactory() {
     }
 
-    public static MyProductDao getCarDao() {
-//        return new MemoryCarDao();
-//        return new JdbcCarDao(ConnectionManager.getConnection());
+    public static MyProductDao getProductDao() {
+//        return new MemoryProductDao();
+//        return new JdbcProductDao(ConnectionManager.getConnection());
         return new JpaMyProductDao(PersistenceManager.getConnection());
     }
 

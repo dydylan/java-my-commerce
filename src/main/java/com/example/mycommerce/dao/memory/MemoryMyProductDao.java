@@ -10,54 +10,54 @@ import java.util.List;
 
 public abstract class MemoryMyProductDao implements MyProductDao {
 
-    private static List<MyProduct> carList = new ArrayList<>();
+    private static List<MyProduct> productList = new ArrayList<>();
     private static Long idSequence = 1L;
 
-    public boolean create(MyProduct car) {
-        car.setId(++idSequence);
-        return carList.add(car);
+    public boolean create(MyProduct product) {
+        product.setId(++idSequence);
+        return productList.add(product);
     }
 
-    public void update(MyProduct car) {
-        int index = getCarIndexById(car.getId());
+    public void update(MyProduct product) {
+        int index = getProductIndexById(product.getId());
         if (index > -1) {
-            carList.set(index, car);
+            productList.set(index, product);
         } else {
-            throw new UnknownProductException(car.getId());
+            throw new UnknownProductException(product.getId());
         }
     }
 
     public MyProduct findProductById(Long id) {
-        int index = getCarIndexById(id);
+        int index = getProductIndexById(id);
         if (index > -1) {
-            MyProduct car = carList.get(index);
-            return car;
+            MyProduct product = productList.get(index);
+            return product;
         } else {
             throw new UnknownProductException(id);
         }
     }
 
     public List<MyProduct> getAllProducts() {
-        return Collections.unmodifiableList(carList);
+        return Collections.unmodifiableList(productList);
     }
 
-    public void remove(MyProduct car) {
-        removeProduct(car.getId());
+    public void remove(MyProduct product) {
+        removeProduct(product.getId());
     }
 
     public void removeProduct(Long id) {
-        int index = getCarIndexById(id);
+        int index = getProductIndexById(id);
         if (index > -1) {
-            carList.remove(index);
+            productList.remove(index);
         } else {
             throw new UnknownProductException(id);
         }
     }
 
-    private int getCarIndexById(Long id) {
-        for (int i = 0; i < carList.size(); ++i) {
-            MyProduct car = carList.get(i);
-            if (car.getId().equals(id)) {
+    private int getProductIndexById(Long id) {
+        for (int i = 0; i < productList.size(); ++i) {
+            MyProduct product = productList.get(i);
+            if (product.getId().equals(id)) {
                 return i;
             }
         }

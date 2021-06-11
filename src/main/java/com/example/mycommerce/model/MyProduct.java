@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "products")
 public class MyProduct implements Serializable {
 
     @Id
@@ -46,6 +46,9 @@ public class MyProduct implements Serializable {
         this.name = name;
     }
 
+    public String getContent() {
+        return this.content;
+    }
 
     public void setContent(String content) {
         this.content = content;

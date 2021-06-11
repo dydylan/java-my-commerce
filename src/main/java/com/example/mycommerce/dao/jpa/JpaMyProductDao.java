@@ -17,12 +17,12 @@ public class JpaMyProductDao implements MyProductDao {
     }
 
     @Override
-    public boolean create(MyProduct car) {
+    public boolean create(MyProduct product) {
         EntityManager em = this.emf.createEntityManager();
         EntityTransaction et = em.getTransaction();
         try {
             et.begin();
-            em.persist(car);
+            em.persist(product);
             et.commit();
         } catch (RuntimeException e) {
             if (et.isActive()) {
@@ -36,7 +36,7 @@ public class JpaMyProductDao implements MyProductDao {
     }
 
     @Override
-    public void update(MyProduct car) {
+    public void update(MyProduct product) {
         // TODO
     }
 
@@ -53,7 +53,7 @@ public class JpaMyProductDao implements MyProductDao {
     }
 
     @Override
-    public void remove(MyProduct car) {
+    public void remove(MyProduct product) {
         // TODO
     }
 

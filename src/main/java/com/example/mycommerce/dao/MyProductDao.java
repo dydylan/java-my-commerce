@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface MyProductDao {
 
-    boolean create(MyProduct car);
+    boolean create(MyProduct product);
 
-    void update(MyProduct car);
+    void update(MyProduct product);
 
     MyProduct findProductById(Long id);
 
     List<MyProduct> getAllProducts();
 
-    void remove(MyProduct car);
+    void remove(MyProduct product);
 
     void removeProduct(Long id);
 

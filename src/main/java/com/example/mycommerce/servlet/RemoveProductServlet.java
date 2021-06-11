@@ -19,7 +19,7 @@ public class RemoveProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Long id = Long.parseLong(req.getParameter("id"));
-        MyProductDao mpd = DaoFactory.getCarDao();
+        MyProductDao mpd = DaoFactory.getProductDao();
         mpd.removeProduct(id);
         RequestDispatcher rs = req.getRequestDispatcher("/auth/listProduct");
         rs.forward(req,resp);

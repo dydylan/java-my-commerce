@@ -22,7 +22,7 @@ public class ListProductServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        MyProductDao mpd = DaoFactory.getCarDao();
+        MyProductDao mpd = DaoFactory.getProductDao();
         List<MyProduct> products = mpd.getAllProducts();
         req.setAttribute("products", products);
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/listProduct.jsp");

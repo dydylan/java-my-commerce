@@ -1,0 +1,20 @@
+body{
+background-color:#F2E8E7;
+    font-family:arial;
+}
+
+body{
+    margin:20px;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+    display: flex;
+}
+
+li{
+    padding-right:10px;
+    padding-left:10px;
+    border: 1px solid #ccc;
+}

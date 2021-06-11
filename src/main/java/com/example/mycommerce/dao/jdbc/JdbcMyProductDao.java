@@ -16,12 +16,13 @@ public class JdbcMyProductDao implements MyProductDao {
     }
 
     @Override
-    public boolean create(MyProduct car) {
+    public boolean create(MyProduct product) {
         int isCreated = 0;
-        String query = "INSERT INTO cars (name, price) VALUES(?,?)";
+        String query = "INSERT INTO products (name, content, price) VALUES(?,?,?)";
         try (PreparedStatement pst = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            pst.setString(1, car.getName());
-            pst.setObject(2, car.getPrice());
+            pst.setString(1, product.getName());
+            pst.setString(2, product.getContent());
+            pst.setObject(3, product.getPrice());
             isCreated = pst.executeUpdate();
 
             this.connection.commit();
@@ -32,7 +33,7 @@ public class JdbcMyProductDao implements MyProductDao {
             Long id = resultSet.getLong(1);
 
             if (id != null) {
-                car.setId(id);
+                product.setId(id);
             }
 
         } catch (SQLException e1) {
@@ -55,29 +56,29 @@ public class JdbcMyProductDao implements MyProductDao {
 
     @Override
     public MyProduct findProductById(Long id) {
-        String query = "SELECT * FROM cars WHERE id = ?";
-        MyProduct foundCar = null;
+        String query = "SELECT * FROM products WHERE id = ?";
+        MyProduct foundProduct = null;
         try (PreparedStatement pst = this.connection.prepareStatement(query)) {
             pst.setLong(1, id);
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                foundCar = mapToCar(rs);
+                foundProduct = mapToProduct(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return foundCar;
+        return foundProduct;
     }
 
     @Override
     public List<MyProduct> getAllProducts() {
-        String query = "SELECT * FROM cars";
+        String query = "SELECT * FROM products";
         List<MyProduct> placeList = new ArrayList<>();
         try (Statement st = this.connection.createStatement()) {
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
-                placeList.add(mapToCar(rs));
+                placeList.add(mapToProduct(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -85,7 +86,7 @@ public class JdbcMyProductDao implements MyProductDao {
         return placeList;
     }
 
-    private MyProduct mapToCar(ResultSet rs) throws SQLException {
+    private MyProduct mapToProduct(ResultSet rs) throws SQLException {
         Long id = rs.getLong("id");
         String name = rs.getString("name");
         String content = rs.getString("name");
@@ -94,7 +95,7 @@ public class JdbcMyProductDao implements MyProductDao {
     }
 
     @Override
-    public void remove(MyProduct car) {
+    public void remove(MyProduct product) {
         // TODO
     }
 

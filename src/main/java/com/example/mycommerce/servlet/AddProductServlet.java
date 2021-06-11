@@ -33,7 +33,7 @@ public class AddProductServlet extends HttpServlet {
         }catch (Exception e){}
 
         nproduct.setPrice(lprice);
-        MyProductDao mpd = DaoFactory.getCarDao();
+        MyProductDao mpd = DaoFactory.getProductDao();
         mpd.addProduct(nproduct);
         resp.sendRedirect( req.getContextPath() + "/auth/listProduct");
 
